@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     private var router = HomeRouter()
     private var viewModel = HomeViewModel()
     private var disposeBag = DisposeBag()
@@ -82,7 +83,6 @@ class HomeViewController: UIViewController {
                 }, onCompleted: {
                     // not necessary
                 }).disposed(by: disposeBag)
-        // Dar por completado la secuencia de RxSwift
     }
     
     private func reloadTableView() {
@@ -95,6 +95,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchController.isActive && searchController.searchBar.text != "" ?
             filteredMovies.count : movies.count
@@ -117,6 +118,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie: Movie = searchController.isActive && searchController.searchBar.text != "" ?
+            filteredMovies[indexPath.row] : movies[indexPath.row]
+
+        viewModel.makeDetailsView(movieID: "\(movie.movieID)")
     }
 }
 

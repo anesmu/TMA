@@ -1,23 +1,29 @@
 //
-//  HomeRouter.swift
+//  DetailsRouter.swift
 //  TMA
 //
-//  Created by Antonio Espino Muñoz on 2/3/22.
+//  Created by Antonio Espino Muñoz on 3/3/22.
 //
 
 import Foundation
 import UIKit
 
-class HomeRouter {
+class DetailsRouter {
     var viewController: UIViewController {
         return makeViewController()
     }
 
+    private var movieID: String?
     private var sourceView: UIViewController?
 
+    init(movieID: String? = "") {
+        self.movieID = movieID
+    }
+
     private func makeViewController() -> UIViewController {
-        let viewController = HomeViewController(nibName: "HomeViewController",
+        let viewController = DetailsViewController(nibName: "DetailsViewController",
                                                 bundle: Bundle.main)
+        viewController.movieID = movieID
         return viewController
     }
 
@@ -26,9 +32,5 @@ class HomeRouter {
 
         self.sourceView = sourceView
     }
-    
-    func navigateToDetailsView(movieID: String) {
-        let detailsView = DetailsRouter(movieID: movieID).viewController
-        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-    }
 }
+
