@@ -1,5 +1,5 @@
 # TheMoviesApp
-##iOS project developed with RxSwift + MVVM pattern + Coordinator
+iOS project developed with RxSwift + MVVM pattern + Coordinator
 
 ![alt tag1](Images/image1.png)
 ![alt tag2](Images/image2.png)
