@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="TMA" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="8eL-xL-Wfy" id="729-OC-9fH"/>
+                <outlet property="tableView" destination="QjV-Qz-XAA" id="cvy-6x-B7L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,20 +21,35 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Movies App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0D-qH-L3z">
-                    <rect key="frame" x="151" y="133" width="123" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QjV-Qz-XAA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8eL-xL-Wfy">
+                    <rect key="frame" x="188.5" y="204" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8eL-xL-Wfy" secondAttribute="height" multiplier="1:1" id="1Ox-he-qI8"/>
+                    </constraints>
+                    <color key="color" name="AccentColor"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="94"/>
+            <constraints>
+                <constraint firstItem="QjV-Qz-XAA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6yI-BK-Syb"/>
+                <constraint firstItem="8eL-xL-Wfy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="84o-oX-HBI"/>
+                <constraint firstItem="QjV-Qz-XAA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="B63-QD-poN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QjV-Qz-XAA" secondAttribute="trailing" id="EPx-9H-FQI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QjV-Qz-XAA" secondAttribute="bottom" id="Td5-Lm-key"/>
+                <constraint firstItem="8eL-xL-Wfy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="160" id="lR4-mq-Y7D"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
